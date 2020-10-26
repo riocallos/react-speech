@@ -21,6 +21,10 @@ export default class Speech extends Component {
 
   componentDidMount() {
     this.setButtonState('all', 'none', 'none', 'none');
+    if(this.props.autoplay !== undefined && this.props.autoplay === true) {
+      console.log("AUTOPLAY true");
+      this.play();
+    }
   }
 
   setButtonState(play, stop, pause, resume) {
@@ -65,10 +69,16 @@ export default class Speech extends Component {
 
   onend() {
     this.stop();
+    if(this.props.onend !== undefined) {
+      this.props.onend;
+    }
   }
 
   onerror() {
     this.stop();
+    if(this.props.onerror !== undefined) {
+      this.props.onerror;
+    }
   }
 
   render() {
