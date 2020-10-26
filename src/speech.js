@@ -212,5 +212,6 @@ Speech.propTypes = {
   disabled: PropTypes.bool,
   stop: PropTypes.bool,
   pause: PropTypes.bool,
-  resume: PropTypes.bool
+  resume: PropTypes.bool,
+  autoplay: PropTypes.bool
 };
