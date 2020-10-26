@@ -21,6 +21,12 @@ export default class Speech extends Component {
 
   componentDidMount() {
     this.setButtonState('all', 'none', 'none', 'none');
+    console.log("speech componentDidMount");
+    console.log("this.props.autoplay " + this.props.autoplay);
+    if(this.props.autoplay !== undefined && this.props.autoplay === true) {
+      console.log("this.props.autoplay " + this.props.autoplay);
+      this.play();
+    }
   }
 
   setButtonState(play, stop, pause, resume) {
