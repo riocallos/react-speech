@@ -23,7 +23,8 @@ export default class Speech extends Component {
     this.setButtonState('all', 'none', 'none', 'none');
     if(this.props.autoplay !== undefined && this.props.autoplay === true) {
       console.log("AUTOPLAY true");
-      this.play();
+      this.setSpeechSynthesis();
+      this.speechSynthesis.speak();
     }
   }
 
