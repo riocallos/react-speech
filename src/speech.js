@@ -102,6 +102,7 @@ export default class Speech extends Component {
           className="rs-play"
           styles={this.state.styles.play}
           onClick={this.play}
+          refs="play"
         >
           <span className="rs-text" style={this.state.styles.text}>
             {this.props.displayText || this.props.text}
@@ -114,6 +115,7 @@ export default class Speech extends Component {
           className="rs-play"
           styles={this.state.styles.play}
           onClick={this.play}
+          refs="play"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -211,6 +213,7 @@ Speech.propTypes = {
   stop: PropTypes.bool,
   pause: PropTypes.bool,
   resume: PropTypes.bool,
+  autoplay: PropTypes.bool,
   onplay: PropTypes.func,
   onend: PropTypes.func,
   onerror: PropTypes.func
