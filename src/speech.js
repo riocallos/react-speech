@@ -21,11 +21,6 @@ export default class Speech extends Component {
 
   componentDidMount() {
     this.setButtonState('all', 'none', 'none', 'none');
-    if(this.props.autoplay !== undefined && this.props.autoplay === true) {
-      console.log("AUTOPLAY true");
-      this.setSpeechSynthesis();
-      this.speechSynthesis.speak();
-    }
   }
 
   setButtonState(play, stop, pause, resume) {
@@ -48,6 +43,9 @@ export default class Speech extends Component {
   }
 
   play() {
+    if(this.props.onplay !== undefined) {
+      this.props.onplay;
+    }
     this.setSpeechSynthesis();
     this.speechSynthesis.speak();
     this.setButtonState('none', 'all', 'all', 'none');
@@ -213,5 +211,7 @@ Speech.propTypes = {
   stop: PropTypes.bool,
   pause: PropTypes.bool,
   resume: PropTypes.bool,
-  autoplay: PropTypes.bool
+  onplay: PropTypes.func,
+  onend: PropTypes.func,
+  onerror: PropTypes.func
 };
